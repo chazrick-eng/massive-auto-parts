@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle Detail — Massive Auto Parts &amp; Car Sales</title>
+<meta name="description" content="Vehicle detail — specs, photos and price. Enquire, reserve, WhatsApp or call about this car.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="cars">
+<div id="site-header-slot"></div>
+
+<section class="section light" style="padding:30px 0 84px">
+  <div class="container">
+    <div class="crumb" style="font-size:13px;color:var(--gray-600);margin-bottom:22px;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.08em">
+      <a href="index.html" style="color:var(--gray-600)">Home</a> / <a href="cars.html" style="color:var(--gray-600)">Car Sales</a> / <span id="crumbName"></span>
+    </div>
+    <div class="detail-grid" id="vWrap"></div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const v = VEHICLES.find(x=>x.id===qs("id")) || VEHICLES[0];
+  document.getElementById("crumbName").textContent = v.title;
+  document.title = `${v.year} ${v.title} — Massive Auto`;
+
+  const thumbs = Array.from({length:v.images}).map(()=>thumbMedia(v,"car")).join("");
+  const statusBadge = v.status==="Available"
+    ? `<span class="badge badge-new" style="position:static;display:inline-block">Available · ${v.condition}</span>`
+    : `<span class="badge badge-reserved" style="position:static;display:inline-block">${v.status}</span>`;
+  const specs = [
+    ["Year", v.year],["Make", v.make],["Model", v.model],["Mileage", v.mileage],
+    ["Transmission", v.transmission],["Fuel", v.fuel],["Engine", v.engine],
+    ["Colour", v.colour],["Body Type", v.bodyType],["Condition", v.condition]
+  ];
+
+  document.getElementById("vWrap").innerHTML = `
+    <div class="gallery">
+      <div class="main-img">${thumbMedia(v,"car")}</div>
+      <div class="thumbs">${thumbs}</div>
+    </div>
+    <div class="detail-info">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px">${statusBadge}<span class="sample-note">Sample listing</span></div>
+      <h1>${v.year} ${v.title}</h1>
+      <div class="detail-price">${fmtJMD(v.price)}</div>
+      <p style="margin:8px 0 14px;color:var(--ink)">${v.description}</p>
+      <table class="spec-table">${specs.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join("")}</table>
+      <div class="detail-cta" id="vcta">
+        <a class="btn btn-red btn-lg btn-block" href="#enquire">Enquire / Reserve</a>
+        <div style="display:flex;gap:10px">
+          <a class="btn btn-whatsapp" id="vWa" target="_blank" rel="noopener" style="flex:1">WhatsApp This Car</a>
+          <a class="btn btn-dark" id="vCall" style="flex:1">Call Us</a>
+        </div>
+      </div>
+      <div class="golive-note">Phase 2 option: <b>Reserve with a deposit</b> — a small fixed deposit can route through the parts gateway, balance handled in person.</div>
+    </div>`;
+
+  document.getElementById("vWa").href = WA_LINK(`Hi Massive Auto — I'm interested in the ${v.year} ${v.title} (${fmtJMD(v.price)}). Is it still available?`);
+  document.getElementById("vCall").href = TEL(BIZ.phone1);
+
+  // enquiry form section
+  document.getElementById("vWrap").insertAdjacentHTML("afterend", `
+    <div class="container" id="enquire" style="padding:0;margin-top:50px">
+      <div class="form-card" style="max-width:680px">
+        <span class="eyebrow">Vehicle enquiry</span>
+        <h2 style="font-size:30px;margin:6px 0 4px">Enquire About This Vehicle</h2>
+        <p style="color:var(--gray-600);margin-bottom:18px">${v.year} ${v.title} · ${fmtJMD(v.price)}</p>
+        <form class="form" data-demo-form>
+          <div class="hp"><label>Leave blank<input type="text" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="intent" value="vehicle-enquiry" class="keep">
+          <input type="hidden" name="vehicle" value="${v.year} ${v.title}" class="keep">
+          <div class="row">
+            <div class="field"><label>Name</label><input type="text" name="name" required></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" required></div>
+          </div>
+          <div class="field"><label>Email</label><input type="email" name="email"></div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Is this still available? Can I view it this week?">I'm interested in the ${v.year} ${v.title}.</textarea></div>
+          <button class="btn btn-red btn-block" type="submit">Send Enquiry</button>
+          <div class="form-msg" role="status"></div>
+        </form>
+      </div>
+    </div>`);
+  document.querySelectorAll("form[data-demo-form]").forEach(wireForm);
+});
+</script>
+</body>
+</html>

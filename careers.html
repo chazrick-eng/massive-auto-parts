@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Now Hiring | Massive Auto Parts &amp; Car Sales</title>
+<meta name="description" content="Now hiring at Massive Auto Parts & Car Sales in Ocho Rios. View open roles and apply — Cashier / Phone Attendant and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="careers">
+<div id="site-header-slot"></div>
+
+<section class="page-hero" data-screen-label="Careers">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / Careers</div>
+    <span class="hiring-badge" style="margin-bottom:14px">★ Now Hiring</span>
+    <h1>Join The Massive Team</h1>
+    <p>We're growing — and we're looking for people who move fast and treat customers right. See open roles below and apply.</p>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container" style="max-width:880px">
+    <div class="section-head"><span class="eyebrow">Open roles</span><h2>Current Openings</h2></div>
+    <div style="display:flex;flex-direction:column;gap:18px" id="rolesWrap">
+
+      <div class="role-card">
+        <div>
+          <h3>Cashier / Phone Attendant</h3>
+          <div class="rc-meta"><span>📍 Ocho Rios, St. Ann</span><span>Full-time</span><span>In-store</span></div>
+          <p style="margin-bottom:8px">Be the friendly first point of contact — fast phone response is a priority for us.</p>
+          <ul>
+            <li>Answer calls &amp; WhatsApp enquiries promptly and courteously</li>
+            <li>Process in-store and pickup transactions accurately</li>
+            <li>Help customers locate parts and take parts requests</li>
+            <li>Keep the counter area organised and stock logged</li>
+          </ul>
+        </div>
+        <a class="btn btn-red" href="#apply" data-role="Cashier / Phone Attendant">Apply</a>
+      </div>
+
+      <div class="role-card">
+        <div>
+          <h3>Parts Counter Associate</h3>
+          <div class="rc-meta"><span>📍 Ocho Rios, St. Ann</span><span>Full-time</span><span>In-store</span></div>
+          <p style="margin-bottom:8px">Know your way around Japanese parts? Help customers find the right fit.</p>
+          <ul>
+            <li>Identify correct parts by make / model / year</li>
+            <li>Advise on fitment and alternatives</li>
+            <li>Pull, check and pack orders for pickup &amp; delivery</li>
+          </ul>
+        </div>
+        <a class="btn btn-red" href="#apply" data-role="Parts Counter Associate">Apply</a>
+      </div>
+
+    </div>
+    <p class="sample-note" style="margin-top:16px">Sample roles — replace with the business's live openings. The Cashier / Phone Attendant role reflects the current ad.</p>
+  </div>
+</section>
+
+<section class="section" id="apply">
+  <div class="container" style="max-width:720px">
+    <div class="form-card">
+      <span class="eyebrow">Apply now</span>
+      <h2 style="font-size:32px;margin:6px 0 4px">Application Form</h2>
+      <p style="color:var(--gray-600);margin-bottom:18px">Send your details and we'll be in touch. You can also email <a href="mailto:bowy10@yahoo.com" class="red">bowy10@yahoo.com</a> directly.</p>
+      <form class="form" data-demo-form>
+        <div class="hp"><label>Leave blank<input type="text" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="intent" value="careers" class="keep">
+        <div class="row">
+          <div class="field"><label>Full name</label><input type="text" name="name" required></div>
+          <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Email</label><input type="email" name="email" required></div>
+          <div class="field"><label>Role</label>
+            <select name="role" id="roleSelect">
+              <option>Cashier / Phone Attendant</option>
+              <option>Parts Counter Associate</option>
+              <option>Other / General application</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Why you're a fit</label><textarea name="message" placeholder="Tell us about your experience…"></textarea></div>
+        <div class="field"><label>Résumé (optional)</label><input type="file" name="resume" accept=".pdf,.doc,.docx"></div>
+        <button class="btn btn-red btn-block btn-lg" type="submit">Submit Application</button>
+        <div class="form-msg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('[data-role]').forEach(btn => btn.addEventListener("click", () => {
+    const sel = document.getElementById("roleSelect");
+    const val = btn.dataset.role;
+    [...sel.options].forEach(o => { if (o.value === val) sel.value = val; });
+  }));
+});
+</script>
+</body>
+</html>

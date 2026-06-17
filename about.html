@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Massive Auto Parts &amp; Car Sales</title>
+<meta name="description" content="Massive Auto Parts & Car Sales — Ocho Rios' parts and cars under one roof. Authorized dealer in used Japanese engines & body parts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="about">
+<div id="site-header-slot"></div>
+
+<section class="page-hero" data-screen-label="About">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / About</div>
+    <h1>Parts &amp; Cars,<br>Under One Roof</h1>
+    <p>Ocho Rios' deep-inventory source for auto parts and quality used vehicles — with a name built on price and selection.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:820px">
+    <span class="eyebrow">Who we are</span>
+    <h2 style="font-size:clamp(28px,3.6vw,42px);margin:8px 0 18px">The North Coast's Parts &amp; Car Source</h2>
+    <p style="font-size:18px;color:var(--ink)">Massive Auto Parts &amp; Car Sales — also known as Massive Used Parts — sits on Main Street in Pineapple, Ocho Rios Bay. We bring auto parts and car sales together in one place, so drivers across St. Ann and the north coast have a single, reliable stop.</p>
+    <p style="font-size:18px;color:var(--ink);margin-top:14px">As an authorized dealer in <b>used Japanese engines and body parts</b>, we specialise in the hard-to-find: the right engine, the right panel, the part the next shop says they can't get. New or used, we carry deep inventory for Toyota, Honda, Nissan, Mazda and more — and we source what we don't stock.</p>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow on-dark">What sets us apart</span><h2>Why Drivers Choose Massive</h2></div>
+    <div class="value-grid">
+      <div class="value-card"><div class="vc-ic" id="a1"></div><h4>Deep Inventory</h4><p>Rows of new &amp; used parts on hand — and the network to source the rest.</p></div>
+      <div class="value-card"><div class="vc-ic" id="a2"></div><h4>Japanese Imports</h4><p>Authorized in used Japanese engines &amp; body parts — our specialty.</p></div>
+      <div class="value-card"><div class="vc-ic" id="a3"></div><h4>Competitive Pricing</h4><p>Quality parts &amp; cars at unbeatable prices. We let the price do the talking.</p></div>
+      <div class="value-card"><div class="vc-ic" id="a4"></div><h4>Fast, Friendly Help</h4><p>Knowledgeable staff and a WhatsApp line — no long waits to get answers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="visit-grid">
+      <div>
+        <span class="eyebrow">Imports</span>
+        <h2 style="font-size:clamp(26px,3.4vw,40px);margin:6px 0 14px">We Buy &amp; Source Japanese Imports</h2>
+        <p style="font-size:17px">Looking to sell, or need a specific imported engine or body part? We actively buy and source Japanese imports for the local market. Tell us what you're after and we'll track it down.</p>
+        <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+          <a class="btn btn-red" href="contact.html#parts-request">Send a Parts Request</a>
+          <a class="btn btn-whatsapp" id="aboutWa" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="about-photo" id="aboutImg">
+        <img src="assets/img/storefront-office.png" alt="Massive sales office and ordering area, Ocho Rios">
+        <span class="hero-photo-tag">Sales office · Ocho Rios</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("a1").innerHTML = IC.tag;
+  document.getElementById("a2").innerHTML = IC.globe;
+  document.getElementById("a3").innerHTML = IC.tag;
+  document.getElementById("a4").innerHTML = IC.users;
+  document.getElementById("aboutWa").href = WA_LINK("Hi Massive Auto — I'd like to ask about Japanese imports.");
+});
+</script>
+</body>
+</html>

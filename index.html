@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Massive Auto Parts &amp; Car Sales — Quality Parts &amp; Cars, Ocho Rios</title>
+<meta name="description" content="Massive Auto Parts & Car Sales — Ocho Rios' deepest auto-parts inventory and car sales. Authorized dealer in used Japanese engines & body parts. Quality parts and cars at unbeatable prices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["AutoPartsStore","AutoDealer","LocalBusiness"],
+  "name":"Massive Auto Parts & Car Sales",
+  "image":"",
+  "address":{"@type":"PostalAddress","streetAddress":"158 Main Street, Pineapple","addressLocality":"Ocho Rios Bay","addressRegion":"St. Ann","addressCountry":"JM"},
+  "geo":{"@type":"GeoCoordinates","latitude":18.4119,"longitude":-77.09812},
+  "telephone":"+18762986413",
+  "openingHours":["Mo-Sa 08:30-18:00","Su 09:00-15:00"],
+  "slogan":"Quality Parts and Cars @ Unbeatable Prices!"
+}
+</script>
+</head>
+<body data-page="home">
+<div id="site-header-slot"></div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-screen-label="Home Hero">
+  <div class="speedbar"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow on-dark">Ocho Rios · St. Ann · Japanese Imports</span>
+        <h1>Quality Parts<br>&amp; Cars.<br><span class="l2">Unbeatable Prices.</span></h1>
+        <p class="lede">North-coast Jamaica's deep-inventory source for new &amp; used auto parts and quality used vehicles. Hard-to-find Japanese engines and body parts — found fast.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red btn-lg" href="parts.html">Shop Parts</a>
+          <a class="btn btn-gold-outline btn-lg" href="cars.html">Browse Cars</a>
+        </div>
+        <form class="hero-search" action="parts.html" method="get" role="search">
+          <input type="text" name="q" placeholder="Find your part — make, model, year…" aria-label="Search parts">
+          <button class="btn btn-gold" type="submit">Search</button>
+        </form>
+        <div class="hero-badges">
+          <div class="hero-badge"><b>Japanese Engines</b><span>Authorized used-parts dealer</span></div>
+          <div class="hero-badge"><b>Deep Inventory</b><span>New &amp; used, hard-to-find parts</span></div>
+          <div class="hero-badge"><b>Fast Response</b><span>WhatsApp us — no long waits</span></div>
+        </div>
+      </div>
+      <div class="hero-visual hero-flyer">
+        <img src="assets/img/hero-deals.jpg" alt="Massive Auto Parts & Car Sales — great deals on affordable car parts">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUICK-PICK CATEGORIES ===================== -->
+<section class="section light">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Shop by category</span>
+      <h2>Find Your Part Fast</h2>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED VEHICLES ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">In the showroom</span>
+        <h2>Featured Vehicles</h2>
+        <p>Quality used cars, inspected and ready. Enquire or reserve — no card checkout for vehicles.</p>
+      </div>
+      <a class="btn btn-ghost" href="cars.html">View All Cars</a>
+    </div>
+    <div class="card-grid grid-3" id="featuredVehicles"></div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED PARTS ===================== -->
+<section class="section light">
+  <div class="container">
+    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">Best sellers</span>
+        <h2>Featured Parts</h2>
+        <p>Add to cart and check out online. <span class="sample-note">Sample pricing — owner to replace</span></p>
+      </div>
+      <a class="btn btn-ghost" href="parts.html">Shop All Parts</a>
+    </div>
+    <div class="card-grid grid-4" id="featuredParts"></div>
+  </div>
+</section>
+
+<!-- ===================== CURRENT SPECIALS ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">On now</span>
+      <h2>Current Specials</h2>
+      <p>Live deals from our Instagram — call to confirm stock &amp; sizes.</p>
+    </div>
+    <div class="specials-grid">
+      <a class="special-tile" href="parts.html?cat=Tires%20%26%20Rims">
+        <img src="assets/img/promo-tires.jpg" alt="Tire and rim combo special from $30K" loading="lazy">
+      </a>
+      <a class="special-tile" href="parts.html?cat=Interior">
+        <img src="assets/img/promo-seats.jpg" alt="Car seats on sale, wide variety, from $14K" loading="lazy">
+      </a>
+      <a class="special-tile" href="parts.html">
+        <img src="assets/img/promo-parts.jpg" alt="Great deals on affordable price car parts" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY MASSIVE ===================== -->
+<section class="section dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow on-dark">Why Massive</span>
+      <h2>The North Coast's Parts Powerhouse</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="vc-ic" id="vi1"></div>
+        <h4>Deep Inventory</h4>
+        <p>Rows of new &amp; used parts — if it's hard to find, start here.</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-ic" id="vi2"></div>
+        <h4>Japanese Imports</h4>
+        <p>Authorized dealer in used Japanese engines &amp; body parts for Toyota, Honda &amp; more.</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-ic" id="vi3"></div>
+        <h4>Competitive Pricing</h4>
+        <p>We let price and inventory do the talking — quality parts at unbeatable prices.</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-ic" id="vi4"></div>
+        <h4>Knowledgeable Staff</h4>
+        <p>Fitment help and straight answers from a team that knows the parts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTS REQUEST STRIP ===================== -->
+<section class="section request-strip" id="parts-request">
+  <div class="container">
+    <div class="request-inner">
+      <div>
+        <span class="eyebrow on-dark" style="color:#fff">Can't find it?</span>
+        <h2>Send Us The Part.</h2>
+        <p>Tell us the make, model, year and the part you need. We'll source it and get back to you fast — by WhatsApp if you like.</p>
+      </div>
+      <div class="form-card" style="color:var(--ink)">
+        <form class="form" data-demo-form>
+          <div class="hp"><label>Leave blank<input type="text" tabindex="-1" autocomplete="off"></label></div>
+          <div class="row">
+            <div class="field"><label>Make</label><input type="text" name="make" placeholder="e.g. Toyota" required></div>
+            <div class="field"><label>Model</label><input type="text" name="model" placeholder="e.g. Axio"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Year</label><input type="text" name="year" placeholder="e.g. 2016"></div>
+            <div class="field"><label>Part needed</label><input type="text" name="part" placeholder="e.g. headlamp" required></div>
+          </div>
+          <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="(876) 000-0000" required></div>
+          <button class="btn btn-red btn-block" type="submit">Request This Part</button>
+          <div class="form-msg" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISIT US ===================== -->
+<section class="section darker">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <span class="eyebrow on-dark">Visit the store</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Come See Us In Ocho Rios</h2>
+        <div class="vline"><svg></svg><div><b>Address</b><span>158 Main Street, Pineapple, Ocho Rios Bay, St. Ann</span></div></div>
+        <div class="vline"><svg></svg><div><b>Hours</b><span>Mon–Sat 8:30am–6:00pm · Sun 9:00am–3:00pm</span></div></div>
+        <div class="vline"><svg></svg><div><b>Call</b><span>(876) 298-6413 · (876) 974-7197</span></div></div>
+        <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+          <a class="btn btn-whatsapp" id="visitWa" target="_blank" rel="noopener">WhatsApp Us</a>
+          <a class="btn btn-gold-outline" id="visitMap" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+      <div>
+        <iframe class="map-embed" title="Map to Massive Auto Parts" loading="lazy" allowfullscreen
+          src="https://www.google.com/maps?q=18.4119,-77.09812&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NOW HIRING TEASER ===================== -->
+<section class="section" style="background:var(--massive-black);color:#fff;padding:60px 0">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+      <span class="hiring-badge">★ Now Hiring</span>
+      <div>
+        <h2 style="font-size:28px">Join The Massive Team</h2>
+        <p style="color:#b5b5b5;margin:4px 0 0">We're recruiting — Cashier / Phone Attendant and more.</p>
+      </div>
+    </div>
+    <a class="btn btn-gold btn-lg" href="careers.html">See Open Roles</a>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Category tiles
+  const cats = [
+    {name:"Engines", icon:"engine", href:"parts.html?cat=Engines"},
+    {name:"Body Parts", icon:"body", href:"parts.html?cat=Body%20Parts"},
+    {name:"Suspension", icon:"suspension", href:"parts.html?cat=Suspension"},
+    {name:"Electrical", icon:"electrical", href:"parts.html?cat=Electrical"},
+    {name:"Accessories", icon:"accessories", href:"parts.html?cat=Accessories"},
+    {name:"Used Cars", icon:"car", href:"cars.html"},
+  ];
+  renderInto("#catGrid", cats.map(c => `
+    <a class="cat-tile" href="${c.href}">
+      <div class="ic">${IC[c.icon]}</div>
+      <h4>${c.name}</h4>
+    </a>`).join(""));
+
+  // Featured
+  renderInto("#featuredVehicles", VEHICLES.filter(v=>v.featured).slice(0,3).map(vehicleCard).join(""));
+  renderInto("#featuredParts", PARTS.filter(p=>p.featured).slice(0,4).map(partCard).join(""));
+
+  // Value icons
+  document.getElementById("vi1").innerHTML = IC.tag;
+  document.getElementById("vi2").innerHTML = IC.globe;
+  document.getElementById("vi3").innerHTML = IC.tag;
+  document.getElementById("vi4").innerHTML = IC.users;
+
+  // Visit icons + links
+  const lines = document.querySelectorAll(".visit-info .vline");
+  lines[0].querySelector("svg")?.replaceWith(htmlToNode(IC.pin));
+  lines[1].querySelector("svg")?.replaceWith(htmlToNode(IC.clock));
+  lines[2].querySelector("svg")?.replaceWith(htmlToNode(IC.phone));
+  document.getElementById("visitWa").href = WA_LINK("Hi Massive Auto — I'd like to visit. Are you open now?");
+  document.getElementById("visitMap").href = `https://www.google.com/maps/search/?api=1&query=${BIZ.gps.lat},${BIZ.gps.lng}`;
+});
+function htmlToNode(html){ const t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstChild; }
+</script>
+</body>
+</html>

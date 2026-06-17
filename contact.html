@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Massive Auto Parts &amp; Car Sales</title>
+<meta name="description" content="Contact Massive Auto Parts & Car Sales in Ocho Rios. Call, WhatsApp, email or send a parts request. Mon–Sat 8:30am–6:00pm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="contact">
+<div id="site-header-slot"></div>
+
+<section class="page-hero" data-screen-label="Contact">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / Contact</div>
+    <h1>Get In Touch</h1>
+    <p>Quick to answer — call, WhatsApp or send a parts request and we'll get right back to you.</p>
+  </div>
+</section>
+
+<section class="section light" style="padding:44px 0 0">
+  <div class="container">
+    <div class="card-grid grid-4" id="contactTiles"></div>
+  </div>
+</section>
+
+<section class="section light" style="padding:40px 0 84px">
+  <div class="container">
+    <div class="cart-page-grid" style="grid-template-columns:1fr 1fr">
+      <!-- Parts request -->
+      <div class="form-card" id="parts-request">
+        <span class="eyebrow">Fastest way to get a part</span>
+        <h2 style="font-size:30px;margin:6px 0 4px">Parts Request</h2>
+        <p style="color:var(--gray-600);margin-bottom:18px">Tell us the vehicle and the part — we'll source it and reply fast.</p>
+        <form class="form" data-demo-form>
+          <div class="hp"><label>Leave blank<input type="text" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="intent" value="parts-request" class="keep">
+          <div class="row">
+            <div class="field"><label>Make</label><input type="text" name="make" placeholder="e.g. Honda" required></div>
+            <div class="field"><label>Model</label><input type="text" name="model" placeholder="e.g. Fit"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Year</label><input type="text" name="year" placeholder="e.g. 2017"></div>
+            <div class="field"><label>Part needed</label><input type="text" name="part" placeholder="e.g. alternator" required></div>
+          </div>
+          <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" required></div>
+          <div class="field"><label>Notes</label><textarea name="message" placeholder="VIN, condition preference, anything else…"></textarea></div>
+          <button class="btn btn-red btn-block btn-lg" type="submit">Request This Part</button>
+          <div class="form-msg" role="status"></div>
+        </form>
+      </div>
+
+      <!-- General enquiry + map -->
+      <div>
+        <div class="form-card">
+          <span class="eyebrow">General enquiry</span>
+          <h2 style="font-size:30px;margin:6px 0 4px">Send a Message</h2>
+          <p style="color:var(--gray-600);margin-bottom:18px">Cars, parts, careers — anything else.</p>
+          <form class="form" data-demo-form>
+            <div class="hp"><label>Leave blank<input type="text" tabindex="-1" autocomplete="off"></label></div>
+            <input type="hidden" name="intent" value="general" class="keep">
+            <div class="row">
+              <div class="field"><label>Name</label><input type="text" name="name" required></div>
+              <div class="field"><label>Phone</label><input type="tel" name="phone" required></div>
+            </div>
+            <div class="field"><label>Email</label><input type="email" name="email"></div>
+            <div class="field"><label>Message</label><textarea name="message" required></textarea></div>
+            <button class="btn btn-dark btn-block" type="submit">Send Message</button>
+            <div class="form-msg" role="status"></div>
+          </form>
+        </div>
+        <iframe class="map-embed" style="margin-top:20px" title="Map to Massive Auto Parts" loading="lazy" allowfullscreen
+          src="https://www.google.com/maps?q=18.4119,-77.09812&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${BIZ.gps.lat},${BIZ.gps.lng}`;
+  const tiles = [
+    { ic:"phone", title:"Call Us", lines:[`<a href="${TEL(BIZ.phone1)}">${BIZ.phone1}</a>`, `<a href="${TEL(BIZ.phone2)}">${BIZ.phone2}</a>`] },
+    { ic:"whatsapp", title:"WhatsApp", lines:[`<a href="${WA_LINK()}" target="_blank" rel="noopener">Chat with us now</a>`, `<a href="${TEL(BIZ.phone1)}" style="color:var(--gray-600);font-size:12px">(876) 298-6413</a>`] },
+    { ic:"pin", title:"Visit", lines:[`<a href="${mapsUrl}" target="_blank" rel="noopener">158 Main Street, Pineapple</a>`, `Ocho Rios Bay, St. Ann`] },
+    { ic:"clock", title:"Hours", lines:[`Mon–Sat 8:30am–6:00pm`, `Sun 9:00am–3:00pm`] },
+  ];
+  renderInto("#contactTiles", tiles.map(t => `
+    <div class="cat-tile" style="text-align:left;padding:22px">
+      <div class="ic" style="margin:0 0 12px;width:34px;height:34px">${IC[t.ic]}</div>
+      <h4 style="margin-bottom:8px">${t.title}</h4>
+      <div style="font-size:14px;line-height:1.7">${t.lines.join("<br>")}</div>
+    </div>`).join(""));
+});
+</script>
+</body>
+</html>

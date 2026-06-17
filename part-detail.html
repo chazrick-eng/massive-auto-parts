@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part Detail — Massive Auto Parts &amp; Car Sales</title>
+<meta name="description" content="Part detail — fitment, condition, stock and pricing. Add to cart or get fitment help on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="parts">
+<div id="site-header-slot"></div>
+
+<section class="section light" style="padding:30px 0 84px">
+  <div class="container">
+    <div class="crumb" style="font-size:13px;color:var(--gray-600);margin-bottom:22px;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.08em">
+      <a href="index.html" style="color:var(--gray-600)">Home</a> / <a href="parts.html" style="color:var(--gray-600)">Auto Parts</a> / <span id="crumbName"></span>
+    </div>
+    <div class="detail-grid" id="detailWrap"></div>
+  </div>
+</section>
+
+<section class="section" style="padding:0 0 84px">
+  <div class="container">
+    <h2 style="font-size:26px;margin-bottom:24px">Related Parts</h2>
+    <div class="card-grid grid-4" id="relatedGrid"></div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const id = qs("id");
+  const p = PARTS.find(x => x.id === id) || PARTS[0];
+  document.getElementById("crumbName").textContent = p.name;
+  document.title = p.name + " — Massive Auto Parts";
+
+  const stockClass = p.stock === "In stock" ? "stock-in" : p.stock === "Order" ? "stock-order" : "stock-out";
+  const stockLabel = p.stock === "In stock" ? "In Stock" : p.stock === "Order" ? "Available to Order" : "Out of Stock";
+  const condBadge = p.condition === "New" ? `<span class="badge badge-new" style="position:static;display:inline-block">New</span>` : `<span class="badge badge-used" style="position:static;display:inline-block">Used Japanese</span>`;
+
+  const thumbs = Array.from({length: p.images}).map((_,i)=>thumbMedia(p, p.category)).join("");
+  const fit = p.compatibility.map(c => `<li>${IC.check} ${c}</li>`).join("");
+
+  document.getElementById("detailWrap").innerHTML = `
+    <div class="gallery">
+      <div class="main-img">${thumbMedia(p, p.category)}</div>
+      <div class="thumbs">${thumbs}</div>
+    </div>
+    <div class="detail-info">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px">${condBadge}<span class="sample-note">Sample listing</span></div>
+      <h1>${p.name}</h1>
+      <p style="color:var(--gray-600);font-size:14px;margin:8px 0">SKU: ${p.sku} · Category: ${p.category}</p>
+      <div class="detail-price">${fmtJMD(p.price)}</div>
+      <span class="stock-pill ${stockClass}">${p.stock==="In stock"?IC.check:""} ${stockLabel}</span>
+      <p style="margin:18px 0;color:var(--ink)">${p.description}</p>
+      <h4 style="font-size:16px;margin-bottom:4px">Fits</h4>
+      <ul class="fitlist">${fit}</ul>
+      <div class="qty-row">
+        <div class="qty-stepper">
+          <button id="qtyMinus" aria-label="Decrease quantity">−</button>
+          <input id="qtyInput" type="text" value="1" inputmode="numeric" aria-label="Quantity">
+          <button id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="btn btn-red btn-lg" id="addBtn" style="flex:1">Add to Cart</button>
+      </div>
+      <div class="detail-cta">
+        <a class="btn btn-whatsapp btn-block" id="fitWa" target="_blank" rel="noopener">Need fitment help? WhatsApp us</a>
+        <a class="btn btn-ghost btn-block" href="contact.html#parts-request">Request a different part</a>
+      </div>
+      <div class="golive-note">Delivery island-wide or free pickup at our Ocho Rios store. Final shipping &amp; any duties confirmed at checkout.</div>
+    </div>`;
+
+  document.getElementById("fitWa").href = WA_LINK(`Hi Massive Auto — I need fitment help with: ${p.name} (${p.sku}).`);
+
+  // qty stepper
+  const qtyInput = document.getElementById("qtyInput");
+  const getQty = () => Math.max(1, parseInt(qtyInput.value)||1);
+  document.getElementById("qtyMinus").onclick = () => { qtyInput.value = Math.max(1, getQty()-1); };
+  document.getElementById("qtyPlus").onclick = () => { qtyInput.value = getQty()+1; };
+  qtyInput.addEventListener("change", () => qtyInput.value = getQty());
+  document.getElementById("addBtn").onclick = () => Cart.add(p.id, getQty());
+
+  // related
+  const related = PARTS.filter(x => x.category === p.category && x.id !== p.id).concat(PARTS.filter(x=>x.category!==p.category)).slice(0,4);
+  renderInto("#relatedGrid", related.map(partCard).join(""));
+});
+</script>
+</body>
+</html>
